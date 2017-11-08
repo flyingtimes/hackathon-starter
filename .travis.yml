@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- 7.5.0
+before_script: npm install
+script: npm app.js
+before_install:
+  - openssl aes-256-cbc -K $encrypted_ee748c561b50_key -iv $encrypted_ee748c561b50_iv -in id_rsa.enc -out ~/.ssh/id_rsa -d
+  - chmod 600 ~/.ssh/id_rsa
+  - echo -e "Host drawer.3dmodel.cc\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+after_success:
+  - npm prune --production  # 删除devDependencies
+  - tar -jcf all.tar.bz2 *  # 打包所有源代码
+  - scp all.tar.bz2 ubuntu@drawer.3dmodel.cc:~ # 拷贝到目标主机的用户目录下
+  - ssh ubuntu@drawer.3dmodel.cc 'mkdir -p starter && tar -jxf all.tar.bz2 -C starter && rm all.tar.bz2' # 解压文件
