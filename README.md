@@ -6,6 +6,18 @@ Hackathon Starter
 
 **Live Demo**: http://hackathonstarter-sahat.rhcloud.com
 
+** 使用说明 **
+一个基于nodejs的web网站的初始化界面，便于后续各种项目有一个好看的前端展示的开始
+
+每次要创建的时候，做一下内容：
+* fork一个hackathonstarter
+* 打通开发机和生产机的ssh
+* 将开发机上的密钥进行加密
+* 安装travis
+* 上传.travis.yml 文件
+* 上传加密后的秘钥文件
+
+
 Jump to [What's new in 4.3.0?](#changelog)
 
 :bulb: Looking for ES5 code? [Click here](https://github.com/sahat/hackathon-starter/tree/es5).
