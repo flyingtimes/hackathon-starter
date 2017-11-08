@@ -4,10 +4,7 @@ node_js:
 before_script: npm install
 script: npm app.js
 before_install:
-- openssl aes-256-cbc -K $encrypted_7c523c238872_key -iv $encrypted_7c523c238872_iv
-  -in id_rsa.enc -out ~\/.ssh/id_rsa -d
-- openssl aes-256-cbc -K $encrypted_ee748c561b50_key -iv $encrypted_ee748c561b50_iv
-  -in id_rsa.enc -out ~/.ssh/id_rsa -d
+- openssl aes-256-cbc -K $encrypted_7c523c238872_key -iv $encrypted_7c523c238872_iv -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 - echo -e "Host drawer.3dmodel.cc\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 after_success:
